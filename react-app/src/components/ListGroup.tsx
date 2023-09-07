@@ -7,7 +7,7 @@ function ListGroup() {
 
   //A hook is a functiont that allow us to tap into building feature in react
   //we tell react that a component will have data or state that will change over time 
-  const [selectedIndex, setselectedIndex] = useState(-1)
+  const [selectedIndex, setselectedIndex] = useState(0)
  
 
   return (
@@ -19,7 +19,7 @@ function ListGroup() {
           <li
             className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
             key={item}
-            onClick={() => selectedIndex = index}
+            onClick={() => setselectedIndex(index)}
           >
             {item}
           </li>
