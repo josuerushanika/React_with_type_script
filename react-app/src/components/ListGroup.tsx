@@ -1,5 +1,14 @@
+import { useState } from "react";
+
 function ListGroup() {
   let items = ["Kinshasa", "Sanfroncisco", "Bakavu", "Kinshasa9"];
+
+  // let selectedIndex =  0;
+
+  //A hook is a functiont that allow us to tap into building feature in react
+  //we tell react that a component will have data or state that will change over time 
+  const [selectedIndex, setselectedIndex] = useState(-1)
+ 
 
   return (
     <>
@@ -8,9 +17,9 @@ function ListGroup() {
       <ul className="list-group">
         {items.map((item,index) => (
           <li
-            className="list-group-item"
+            className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
             key={item}
-            onClick={(event) => console.log(event)}
+            onClick={() => selectedIndex = index}
           >
             {item}
           </li>
