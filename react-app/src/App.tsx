@@ -1,13 +1,10 @@
-import Message from "./Message";
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 function App() {
 
-  let items = ["Kinshasa", "Sanfroncisco", "Bakavu", "Kisangani"];
+
   return <div>
-   
-   <ListGroup items={items} heading="Cities"/>
-  
+    <Alert/>
   </div>
 }
 
