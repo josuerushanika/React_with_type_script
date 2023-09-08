@@ -4,7 +4,7 @@ function App() {
 
 
   return <div>
-    <Alert/>
+    <Alert text="Hello word"/>
   </div>
 }
 
