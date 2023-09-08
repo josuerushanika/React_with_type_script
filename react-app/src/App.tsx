@@ -1,10 +1,10 @@
-import Alert from "./components/Alert";
+import { BsFillCalendarCheckFill } from 'react-icons/bs';
 
 function App() {
 
 
   return <div>
-    <Alert/>
+    <  BsFillCalendarCheckFill/>
   </div>
 }
 
