@@ -1,10 +1,11 @@
-import Button from "./components/Button";
+import { useState } from "react";
+
 
 function App() {
+const [cartItems, setCartItems] =  useState(['Product1', 'Product2']);
+
   return <div>
-    <Button color="primary" onClick={() => console.log('Clicked')}>
-       My Button
-    </Button>
+   
   </div>;
 }
 
