@@ -5,8 +5,8 @@ interface Props {
 }
 
 
-export const NavBar = ({}) => {
+export const NavBar = ({cartItemsCount}: Props) => {
   return (
-    <div>NavBar</div>
+    <div>NavBar: {cartItemsCount}</div>
   )
 }
