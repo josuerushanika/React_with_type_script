@@ -1,39 +1,23 @@
-import { useState } from "react";
-import Form from "./components/Form";
-import ExpenseList from "./expense-tracker/components/ExpenseList";
-import ExpenseFilter from "./components/ExpenseFilter";
-import ExpenseForm from "./components/ExpenseForm";
-import categories from "./expense-tracker/categories";
-
+import { useEffect, useRef, useState } from "react";
+import ProductList from "./components/ProductList";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [expenses, setExpenses] = useState([
-    { id: 1, description: "aaa", amount: 10, category: "Utilities" },
-    { id: 2, description: "bbb", amount: 10, category: "Utilities" },
-    { id: 3, description: "ccc", amount: 10, category: "Utilities" },
-    { id: 4, description: "ddd", amount: 10, category: "Utilities" },
-  ]);
 
-  const visibleExpenses = selectedCategory
-    ? expenses.filter((e) => e.category === selectedCategory)
-    : expenses;
+  const [category, setCategory] = useState('');
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    document.title = "My App";
+  });
 
   return (
     <div>
-      <div className="mb-5">
-        <ExpenseForm/>
-      </div>
-      <div className="mb-3">
-        <ExpenseFilter
-          onSelectCategory={(category) => setSelectedCategory(category)}
-        />
-      </div>
-
-      <ExpenseList
-        expenses={visibleExpenses}
-        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
-      />
+      <select  className="form-select" onChange={(event) => setCategory(event.target.value)}>
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">Household</option>
+      </select>
+      <ProductList category={category} />
     </div>
   );
 }
